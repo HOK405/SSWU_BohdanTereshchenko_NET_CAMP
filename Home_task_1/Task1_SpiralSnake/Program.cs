@@ -1,7 +1,7 @@
 ﻿namespace Task1_SpiralSnake
 {
     internal class Program
-    {
+    {//Вітаю. Перше завдання по створенню репозиторію Ви виконали.
         static void Main(string[] args)
         {
             Console.WriteLine("Enter the number of rows:");
