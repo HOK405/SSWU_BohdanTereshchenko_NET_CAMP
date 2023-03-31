@@ -34,6 +34,9 @@
             Console.WriteLine($"Max one-color line length - {matrix.LineLength}");
             Console.WriteLine($"Coordinates [{matrix.LineRow},{matrix.ColumnStart}] - [{matrix.LineRow},{matrix.ColumnFinish}]");
             Console.WriteLine($"Color - {matrix.Color}");
+
+
+            Console.Write("Hello world!!!");
         }
     }
 }
