@@ -3,14 +3,14 @@
 namespace Task2_OneColorLineInMatrix
 {
     internal class ColorMatrix
-    {
+    {// молодець, що константу винесено.
         private const int UPPER_LIMIT = 17;
         private const int LOWER_LIMIT = 0;
 
         private int _rows;
         private int _columns;
         private int[,] _matrix;
-
+//краще повертати як параметри результату в методі
         public int Color { get; private set; } = 0;
         public int LineLength { get; private set; } = 1;
         public int LineRow { get; private set; } = 0;
@@ -31,7 +31,7 @@ namespace Task2_OneColorLineInMatrix
             int amount = _rows * _columns;
 
             for (int i = 0; i < amount; i++)
-            {
+            {//Чому так дивно?
                 _matrix[i / _columns, i % _columns] = random.Next(LOWER_LIMIT, UPPER_LIMIT);
             }
         }
