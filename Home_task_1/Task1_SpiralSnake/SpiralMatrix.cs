@@ -28,7 +28,7 @@ namespace Task1_SpiralSnake
             int itemsAmount = _rows * _columns;
 
             while (printValue <= itemsAmount)
-            {
+            {// надлишок в умовах
                 // down
                 for (int row = startRowIndex; row <= finishRowIndex && printValue <= itemsAmount; row++)
                 {
