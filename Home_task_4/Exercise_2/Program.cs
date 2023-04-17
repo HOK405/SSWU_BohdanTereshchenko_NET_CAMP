@@ -10,12 +10,17 @@
 
             correctEmails.Add("hello(aa)world@gmail.com");
             correctEmails.Add("example@example.com");
+            correctEmails.Add("john.smith(comment)@addresss.com");
             correctEmails.Add("correct*address{one}@address.com(comment)");
             correctEmails.Add("$correct!address@(comment)post.com");
 
             List<string> nonCorectEmails = new List<string>();
             nonCorectEmails.Add("example@.com");
+            nonCorectEmails.Add("hello)World@gmail.com");
             nonCorectEmails.Add("hello((World@gmail.com");
+            nonCorectEmails.Add("hello()World@gmail.com"); // пусті
+            nonCorectEmails.Add("hello())World@gmail.com");
+            nonCorectEmails.Add("hello(comment1)(comment)World@gmail.com");
             nonCorectEmails.Add(".noncorrect@gmail.com");
 
             List<string> result = correctEmails.Concat(nonCorectEmails).ToList();

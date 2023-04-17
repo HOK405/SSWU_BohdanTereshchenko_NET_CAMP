@@ -10,6 +10,8 @@ namespace Exercise_2
     internal class EmailsFinder
     {
         const int MAX_PARENTHESIS_AMOUNT = 1;
+        const int LOCAL_LENGTH = 64;
+        const int DOMAIN_LENGTH = 255;
         private string _text;
 
         private List<string> _emails;
@@ -86,7 +88,7 @@ namespace Exercise_2
             }
 
             // Перевірка на довжину
-            if (localPart.Length > 64)
+            if (localPart.Length > LOCAL_LENGTH)
             {
                 return false;
             }
@@ -131,7 +133,7 @@ namespace Exercise_2
             }
 
             // Перевірка на довжину
-            if (domainPart.Length > 64)
+            if (domainPart.Length > DOMAIN_LENGTH)
             {
                 return false;
             }
@@ -173,10 +175,11 @@ namespace Exercise_2
 
         private bool AreCommentsValid(string input)
         {
-            int leftCounter = input.Count(f => (f == '('));
-            int rightCounter = input.Count(f => (f == ')'));
+            //bool result = input.Contains('(') == input.Contains(')');
+            int LeftParenthesisAmount = input.Count(f => (f == '('));
+            int RightParenthesisAmount = input.Count(f => (f == ')'));
 
-            if (leftCounter > 1 || rightCounter > 1)
+            if ((LeftParenthesisAmount != RightParenthesisAmount) || (LeftParenthesisAmount > MAX_PARENTHESIS_AMOUNT))
             {
                 return false;
             }
