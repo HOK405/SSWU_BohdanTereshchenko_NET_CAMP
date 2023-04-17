@@ -176,10 +176,10 @@ namespace Exercise_2
         private bool AreCommentsValid(string input)
         {
             //bool result = input.Contains('(') == input.Contains(')');
-            int LeftParenthesisAmount = input.Count(f => (f == '('));
-            int RightParenthesisAmount = input.Count(f => (f == ')'));
+            int leftParenthesisAmount = input.Count(f => (f == '('));
+            int rightParenthesisAmount = input.Count(f => (f == ')'));
 
-            if ((LeftParenthesisAmount != RightParenthesisAmount) || (LeftParenthesisAmount > MAX_PARENTHESIS_AMOUNT))
+            if ((leftParenthesisAmount != rightParenthesisAmount) || (leftParenthesisAmount > MAX_PARENTHESIS_AMOUNT))
             {
                 return false;
             }
