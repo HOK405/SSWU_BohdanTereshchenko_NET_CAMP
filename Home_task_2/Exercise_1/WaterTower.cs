@@ -22,7 +22,7 @@ namespace Exercise_1
             _currentLevel = 0;
             _waterPump = waterPump;
         }
-
+// {хто запускає цей метод?
         public void Update() { }
 
         public override string ToString() // повертає рядок, що описує стан сутності
