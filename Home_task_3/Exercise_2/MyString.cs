@@ -39,9 +39,11 @@ namespace Exercise_2
                         words[i] = replacementText;
                     }
                 }
+                // загублено початковий розподіл пробільних символів.
                 return string.Join(' ', words);
             }
             else
+                // Якщо слів не знайдено текст має залишитись незмінним.
                 return null;
         }
 
