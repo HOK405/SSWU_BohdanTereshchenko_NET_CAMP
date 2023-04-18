@@ -10,9 +10,9 @@ namespace Exercise_3
 
         public static void ShowSpecificRecord(RecordsStorageController storage, Record? record) // with header
         {
-            if (record is null)
+            if (record is null || storage is null)
             {
-                throw new ArgumentNullException("Record is null.");
+                throw new ArgumentNullException("Record or storage are null.");
             }
 
             ShowHeader();

@@ -7,22 +7,28 @@
             Console.OutputEncoding = System.Text.Encoding.Unicode;
 
             float price = 1.44F;  // ціна за 1квт у грн
+            try
+            {
+                RecordsStorageController controller;
 
-            RecordsStorageController controller;
+                TextDataFormatter.GetRecordsFromTextFile(out controller, "data.txt");
+                controller.Price = price;
 
-            TextDataFormatter.GetRecordsFromTextFile(out controller, "data.txt");
-            controller.Price = price;
+                RecordsStorageConsoleViewer.ShowAllRecords(controller);
 
-            RecordsStorageConsoleViewer.ShowAllRecords(controller);
+                Console.WriteLine();
+                Console.WriteLine("Record with max consumption:");
 
-            Console.WriteLine();
-            Console.WriteLine("Record with max consumption:");
+                RecordsStorageConsoleViewer.ShowSpecificRecord(controller, controller.GetMaxConsumptionRecord());
 
-            RecordsStorageConsoleViewer.ShowSpecificRecord(controller, controller.GetMaxConsumptionRecord());
-
-            Console.WriteLine();
-            Console.WriteLine("Records without consumption:");
-            RecordsStorageConsoleViewer.ShowRecordsGroup(controller, controller.GetNoConsumptionRecords());
+                Console.WriteLine();
+                Console.WriteLine("Records without consumption:");
+                RecordsStorageConsoleViewer.ShowRecordsGroup(controller, controller.GetNoConsumptionRecords());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
