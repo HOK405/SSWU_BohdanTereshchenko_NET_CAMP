@@ -75,8 +75,8 @@ namespace Exercise_3
         private static void PrintRecord(Record record, float price)
         {
             Console.WriteLine($"{record.Number,SHORT_INDENTATION}│{record.Surname,LONG_INDENTATION}│{record.InputDate.ToString("MMMM"),LONG_INDENTATION}│" +
-                 $"{record.InputDate.ToString("MM.dd.yyyy"),LONG_INDENTATION}│{record.InputReading,MIDDLE_INDENTATION}│{record.OutputDate.ToString("MMMM"),LONG_INDENTATION}│" +
-                 $"{record.OutputDate.ToString("MM.dd.yyyy"),LONG_INDENTATION}│{record.OutputReading,MIDDLE_INDENTATION}│{(record.OutputReading - record.InputReading),MIDDLE_INDENTATION:F2}│" +
+                 $"{record.InputDate.ToString("dd.MM.yyyy"),LONG_INDENTATION}│{record.InputReading,MIDDLE_INDENTATION}│{record.OutputDate.ToString("MMMM"),LONG_INDENTATION}│" +
+                 $"{record.OutputDate.ToString("dd.MM.yyyy"),LONG_INDENTATION}│{record.OutputReading,MIDDLE_INDENTATION}│{(record.OutputReading - record.InputReading),MIDDLE_INDENTATION:F2}│" +
                  $"{(record.OutputReading - record.InputReading) * price, MIDDLE_INDENTATION:F2}|{(DateTime.Now-record.OutputDate).TotalDays,LONG_INDENTATION:F0}|");
         }
     }
