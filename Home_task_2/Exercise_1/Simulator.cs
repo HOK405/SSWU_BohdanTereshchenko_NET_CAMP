@@ -11,10 +11,11 @@ namespace Exercise_1
         List<User> _users;
 
         private WaterTower _waterTower;
-
+// Хто створює ці об'єкти ?
         public Simulator(WaterTower waterTower, List<User> users)
         {
             _users = users;
+            // мала б бути глибока копія
             _waterTower = waterTower;
         }
 
