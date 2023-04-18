@@ -1,7 +1,8 @@
 ﻿namespace Exercise_2
 {
     internal class Program
-    {
+    {// До діаграми. Початок добрий. Але як комунікує користувач з вежею і чи комунікує. Чому у нього не має методу взяти воду.Хто створює користувачів у системі. загалом методи класу не продумані. Де валідуються дані.
+        
         static void Main(string[] args)
         {
             string inputText = "The quick brown fox jjumps over the lazy dog. The lazy dog jumps over the quick brown fox. Dog";
