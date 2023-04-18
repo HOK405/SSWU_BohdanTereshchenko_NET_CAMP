@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Exercise_3
+﻿namespace Exercise_3
 {
     static internal class TextDataFormatter
     {
@@ -34,6 +28,7 @@ namespace Exercise_3
                         OutputDate = DateTime.Parse(parts[6].Trim())
                     });
                 }
+
                 controller = new RecordsStorageController(records, apartmentCount, quarter);
             }
         }

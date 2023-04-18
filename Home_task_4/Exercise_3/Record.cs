@@ -16,11 +16,6 @@
 
         private DateTime _outputDate;
 
-        public Record()
-        {
-
-        }
-
         public int? Number
         {
             get 
@@ -31,7 +26,7 @@
             {
                 if (value <=0 || value is null)
                 {
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("Number value error.");
                 }
                 else
                 { 
@@ -50,7 +45,7 @@
             {
                 if (value is null)
                 {
-                    throw new ArgumentNullException();
+                    throw new ArgumentNullException("Address value error.");
                 }
                 else
                 {
@@ -69,7 +64,7 @@
             {
                 if (value is null)
                 {
-                    throw new ArgumentNullException();
+                    throw new ArgumentNullException("Surname value error.");
                 }
                 else
                 {
@@ -88,7 +83,7 @@
             {
                 if (value < 0 || value is null)
                 {
-                    throw new ArgumentNullException();
+                    throw new ArgumentNullException("Input Reading value error.");
                 }
                 else
                 {
@@ -107,7 +102,7 @@
             {
                 if (value < 0 || value is null)
                 {
-                    throw new ArgumentNullException();
+                    throw new ArgumentNullException("Output Reading value error.");
                 }
                 else
                 {
