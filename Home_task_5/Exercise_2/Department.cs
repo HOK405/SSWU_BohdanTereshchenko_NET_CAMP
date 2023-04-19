@@ -4,7 +4,7 @@
     {
         protected List<Component> _children = new List<Component>();
         public string Name { get; set; }
-        public Department(string name)
+        public Department(string name = "No name")
         {
             Name = name;
         }

@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Exercise_2
+﻿namespace Exercise_2
 {
     internal static class ShopConsoleViewer
     {
-        public static void ShowBoxes(Department shop)
+        public static void ShowBoxesInfo(Department shop)
         {
+            string shopInfo = $"\"{shop.Name}\" box size - H:{shop.GetHeight()}, W:{shop.GetWidth()}, L:{shop.GetLength()}";
+
+            Console.WriteLine(shopInfo);
+
             foreach (Department department in shop.GetChildren())
             {
-                Console.WriteLine($"\"{department.Name}\" box size - H:{department.GetHeight()}, W:{department.GetWidth()}, L:{department.GetLength()}");
+                string departmentInfo = $"{"".PadLeft(shopInfo.Length)}\"{department.Name}\" box size - H:{department.GetHeight()}, W:{department.GetWidth()}, L:{department.GetLength()}";
+                Console.WriteLine(departmentInfo.ToString().PadLeft(shopInfo.Length));
+
                 foreach (Product product in department.GetChildren())
                 {
-                    Console.WriteLine($"{"",35}\"{product.Name}\" box size - H:{product.GetHeight()}, W:{product.GetWidth()}, L:{product.GetLength()}");
+                    Console.WriteLine($"{"".PadLeft(departmentInfo.Length)}\"{product.Name}\" box size - H:{product.GetHeight()}, W:{product.GetWidth()}, L:{product.GetLength()}");
                 }
             }
         }
