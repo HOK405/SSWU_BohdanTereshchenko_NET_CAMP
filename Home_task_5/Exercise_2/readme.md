@@ -1,4 +1,4 @@
 # Вивід значень за замовчуванням:
-![Screenshot](ProgramResult1.png)
+![Screenshot1](ProgramResult1.png)
 # Вивід значень, які були введені користувачем:
-![Screenshot](ProgramResult2.png)
+![Screenshot2](ProgramResult2.png)
