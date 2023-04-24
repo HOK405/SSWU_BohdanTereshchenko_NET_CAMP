@@ -1,5 +1,5 @@
 ﻿namespace Exercise_2
-{
+{// От і вийшов Компонувальник)
     internal class Department : Component
     {
         protected List<Component> _children = new List<Component>();
