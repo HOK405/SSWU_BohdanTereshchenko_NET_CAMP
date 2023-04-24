@@ -1,7 +1,7 @@
 ﻿namespace Exercise_1
 {
     internal class Program
-    {
+    {//Bohdan	Tereshchenko		90	0	5	90	90	90	99	94,3. вітаю Вас у 2 турі.
         static void Main(string[] args)
         {
             Garden firstGarden = new Garden();         // сад
