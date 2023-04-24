@@ -3,7 +3,7 @@
 namespace Exercise_1
 {
     internal static class SentenceSeparator
-    {
+    {//Цю функцію можна б розділити на 2. І загалом видно, що думали функціонально
         public static List<string> GetSentencesWithParentheses(List<string> text)
         {
             List<string> _separatedSentences = new List<string>();
