@@ -1,5 +1,5 @@
 ﻿namespace Exercise_1
-{
+{// опукла оболонка в цілому правильна
     internal class Garden
     {
         private List<Point> _treesData;
