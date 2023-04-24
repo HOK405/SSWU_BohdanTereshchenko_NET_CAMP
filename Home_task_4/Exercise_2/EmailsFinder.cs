@@ -8,7 +8,7 @@ using static System.Net.Mime.MediaTypeNames;
 namespace Exercise_2
 {
     internal class EmailsFinder
-    {
+    {// Молодець!
         const int MAX_PARENTHESIS_AMOUNT = 1;
         const int LOCAL_LENGTH = 64;
         const int DOMAIN_LENGTH = 255;
