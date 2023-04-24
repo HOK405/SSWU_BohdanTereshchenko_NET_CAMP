@@ -1,11 +1,11 @@
 ﻿namespace Exercise_3
-{
+{// січень і березень не мали б попасти в один квартал))
     internal class Program
     {
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.Unicode;
-
+// краще цю константу в конфігураційний клас класти.
             float price = 1.44F;  // ціна за 1квт у грн
             try
             {
