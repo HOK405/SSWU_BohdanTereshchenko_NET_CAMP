@@ -7,7 +7,10 @@ public class SnakeMatrix : IEnumerable
 {
     private int[,] _matrix;
 
-    public SnakeMatrix() { }
+    public SnakeMatrix() 
+    {
+        _matrix = new int[3, 3];
+    }
 
     public SnakeMatrix(int[,] matrix)
     {
