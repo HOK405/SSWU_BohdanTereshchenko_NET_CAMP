@@ -1,0 +1,2 @@
+﻿# Вивід:
+![ProgramResult](ProgramResult.png)
