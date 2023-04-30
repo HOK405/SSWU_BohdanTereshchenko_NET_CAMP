@@ -8,12 +8,17 @@ namespace Exercise_2
 {
     internal class ArraySorter
     {
-        List<int> _sortedList = new();
+        List<int> _sortedList;
 
-        public ArraySorter() { }
+        public ArraySorter() 
+        {
+            _sortedList = new();
+        }
 
         public ArraySorter(params int[][] arrays)
         {
+            _sortedList = new();
+
             if (arrays is null)
             {
                 throw new ArgumentNullException(nameof(arrays), "Arrays parameter cannot be null.");
