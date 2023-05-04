@@ -36,6 +36,7 @@ namespace Exercise_3
                 else
                 {
                     uniqueWords.Add(word);
+                   //І тут же треба  yield return word;
                 }
             }
 
