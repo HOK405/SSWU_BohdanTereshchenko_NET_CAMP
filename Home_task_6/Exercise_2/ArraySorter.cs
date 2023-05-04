@@ -16,7 +16,7 @@ namespace Exercise_2
         }
 
         public ArraySorter(params int[][] arrays)
-        {
+        {// Ви формуєте відразу злитий список і yield втрачає свою перевагу
             _sortedList = new();
 
             if (arrays is null)
