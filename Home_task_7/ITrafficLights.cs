@@ -2,7 +2,8 @@
 {
     internal interface ITrafficLights
     {
-        public string Name { get; set; } 
+        public string Name { get; } 
         public TrafficColor GetState();
+        public void TurnOff();
     }
 }

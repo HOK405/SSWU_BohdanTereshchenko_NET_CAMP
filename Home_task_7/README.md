@@ -1,2 +1,2 @@
 ﻿# Вивід:
-![ProgramResult](ProgramResult.png)
+![ProgramResult1](ProgramResult.png)

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Home_task_7
+﻿namespace Home_task_7
 {
     internal class SimpleTrafficLights : ITrafficLights
     {
@@ -13,31 +6,27 @@ namespace Home_task_7
         private TrafficColor _trafficColor;
         private bool IsFromGreenToRed;  // змінна яка відповідає за напрямок перемикання світлофору (з зеленого на червоний чи навпаки)
 
-        public string Name 
-        { 
-            get => _name; 
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException(nameof(value), "Value must not be null.");
-                }
-                _name = value;
-            }
-        }
-
         public SimpleTrafficLights()
         {
-            _name = "No name";
+            SetName("No name");
             _trafficColor = TrafficColor.Off;
             IsFromGreenToRed = true;
         }
+        public SimpleTrafficLights(SimpleTrafficLights simpleTrafficLights) // конструктор для клонування
+        {
+            _name = simpleTrafficLights.Name;
+            _trafficColor = simpleTrafficLights._trafficColor;
+            IsFromGreenToRed = simpleTrafficLights.IsFromGreenToRed;
+        }
 
-        public SimpleTrafficLights(string name, TrafficColor trafficColor)
+        public SimpleTrafficLights(string name)
         {
             _name = name;
-            _trafficColor = trafficColor;
+            _trafficColor = TrafficColor.Off;
         }
+
+        public string Name { get { return _name; } }
+        public void SetName(string name) { _name = string.IsNullOrEmpty(name) ? "No Name" : name; }
 
         public void TurnOnRed() 
         { 
