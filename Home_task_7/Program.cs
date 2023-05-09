@@ -1,7 +1,7 @@
 ﻿namespace Home_task_7
 {
     internal class Program
-    {
+    {//сумарний бал -95
         static void Main(string[] args)
         {
             SimpleIntersectionController simpleIntersectionController = new SimpleIntersectionController(
