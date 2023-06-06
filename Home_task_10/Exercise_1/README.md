@@ -1,10 +1,10 @@
-# Умова
+# РЈРјРѕРІР°
 ![Task](Task.png)
 
-# Вивід
+# Р’РёРІС–Рґ
 ![ProgramResult](ProgramResult.png)
 
-# Задання платіжних систем
+# Р—Р°РґР°РЅРЅСЏ РїР»Р°С‚С–Р¶РЅРёС… СЃРёСЃС‚РµРј
 ```csharp
 List<PaymentSystem> paymentSystems = new List<PaymentSystem>
             {
