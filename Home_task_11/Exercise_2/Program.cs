@@ -6,9 +6,9 @@ namespace Exercise_2
     {
         public static void Main()
         {
-            ExternalMergeSorting.GenerateAndWriteNumbers(130);
-            ExternalMergeSorting.ProcessAndWriteToFile(50);
-            ExternalMergeSorting.MergeAndWriteBackToFile();
+            ExternalMergeSorting externalMergeSorting = new ExternalMergeSorting();
+
+            externalMergeSorting.Perform(130, 50);
         }
     } 
 }

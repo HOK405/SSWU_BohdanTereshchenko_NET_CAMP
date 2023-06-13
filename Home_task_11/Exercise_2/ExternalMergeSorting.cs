@@ -1,22 +1,34 @@
 ﻿namespace Exercise_2
 {
-    public static class ExternalMergeSorting
+    public class ExternalMergeSorting
     {
-        private const int MIN_NUMBER = 0;
-        private const int MAX_NUMBER = 101;
-        private static string filePath = "data.txt";
+        private const int MIN_VALUE = 0;
+        private const int MAX_VALUE = 101;
+        private string _inputFilePath;
 
-        public static void GenerateAndWriteNumbers(int count)
+        public ExternalMergeSorting(string inputFilePath = "input.txt")
         {
-            Random random = new Random();
-            string numbers = string.Join("\n", Enumerable.Range(0, count).Select(_ => random.Next(MIN_NUMBER, MAX_NUMBER)).ToArray());
-
-            File.WriteAllText(filePath, numbers);
+            _inputFilePath = inputFilePath;
         }
 
-        public static void ProcessAndWriteToFile(int chunkSize)
+        public void Perform(int numbersQuantity, int chunkSize)
         {
-            using (StreamReader reader = new StreamReader(filePath))
+            GenerateAndWriteNumbers(numbersQuantity);
+            ProcessAndWriteToChunks(chunkSize);
+            MergeAndWriteBackToFile();
+        }
+
+        private void GenerateAndWriteNumbers(int count)
+        {
+            Random random = new Random();
+            string numbers = string.Join("\n", Enumerable.Range(0, count).Select(_ => random.Next(MIN_VALUE, MAX_VALUE)).ToArray());
+
+            File.WriteAllText(_inputFilePath, numbers);
+        }
+
+        private void ProcessAndWriteToChunks(int chunkSize)
+        {
+            using (StreamReader reader = new StreamReader(_inputFilePath))
             {
                 List<int> tempList = new List<int>();
                 string line;
@@ -24,7 +36,7 @@
 
                 while ((line = reader.ReadLine()) != null)
                 {
-                    tempList.Add(int.Parse(line));
+                    tempList.Add(int.Parse(line)); // к-сть елементів буде максимум chunkSize
 
                     if (tempList.Count == chunkSize)
                     {
@@ -42,7 +54,7 @@
             }
         }
 
-        public static void MergeAndWriteBackToFile()
+        private void MergeAndWriteBackToFile()
         {
             int fileCount = 1;
             string file1, file2;
@@ -56,18 +68,28 @@
                 MergeTwoFiles(file1, file2, $"merge{mergeCount++}.txt");
             }
 
-            if (File.Exists($"chunk{fileCount}.txt")) 
+            if (File.Exists($"chunk{fileCount}.txt"))
             {
                 MergeTwoFiles($"merge{mergeCount - 1}.txt", $"chunk{fileCount}.txt", $"merge{mergeCount++}.txt");
             }
 
-            while (File.Exists($"merge{mergeCount - 1}.txt") && File.Exists($"merge{mergeCount - 2}.txt"))
+            int lastMergedFileIndex = mergeCount > 1 ? mergeCount - 1 : 1;
+            for (int i = 1; i < lastMergedFileIndex; i++) 
             {
-                file1 = $"merge{mergeCount - 2}.txt";
-                file2 = $"merge{mergeCount - 1}.txt";
+                if (File.Exists($"merge{i}.txt") && File.Exists($"merge{i + 1}.txt"))
+                {
+                    MergeTwoFiles($"merge{i}.txt", $"merge{i + 1}.txt", $"merge{mergeCount}.txt");
+                    lastMergedFileIndex = mergeCount;
+                    mergeCount++;
+                }
+            }
 
-                MergeTwoFiles(file1, file2, $"merge{mergeCount}.txt");
-                mergeCount++;
+            for (int i = 1; i < mergeCount; i++)
+            {
+                if (File.Exists($"merge{i}.txt") && i != lastMergedFileIndex)
+                {
+                    File.Delete($"merge{i}.txt");
+                }
             }
 
             if (File.Exists("merge.txt"))
@@ -75,9 +97,9 @@
                 File.Delete("merge.txt");
             }
 
-            File.Move($"merge{mergeCount - 1}.txt", "merge.txt");
+            File.Move($"merge{lastMergedFileIndex}.txt", "merge.txt");
 
-            using (StreamWriter writer = new StreamWriter(filePath, append: true))
+            using (StreamWriter writer = new StreamWriter(_inputFilePath, append: true))
             {
                 writer.WriteLine("\n\nРезультат:\n" + File.ReadAllText("merge.txt"));
             }
@@ -85,7 +107,7 @@
             File.Delete("merge.txt");
         }
 
-        private static void MergeTwoFiles(string file1, string file2, string outputFilePath) 
+        private void MergeTwoFiles(string file1, string file2, string outputFilePath) 
         {
             using (StreamReader reader1 = new StreamReader(file1), reader2 = new StreamReader(file2))
             {
@@ -124,7 +146,6 @@
 
             File.Delete(file1);
             File.Delete(file2);
-        }
-     
+        } 
     }
 }
