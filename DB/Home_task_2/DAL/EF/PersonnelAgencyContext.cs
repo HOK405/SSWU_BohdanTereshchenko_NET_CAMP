@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Home_task_2.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace Home_task_2.DataDB;
+namespace DAL.EF;
 
 public partial class PersonnelAgencyContext : DbContext
 {

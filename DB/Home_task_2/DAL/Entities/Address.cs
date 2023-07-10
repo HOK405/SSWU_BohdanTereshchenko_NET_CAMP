@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Home_task_2.DataDB;
+﻿namespace Home_task_2.Entities;
 
 public partial class Address
 {

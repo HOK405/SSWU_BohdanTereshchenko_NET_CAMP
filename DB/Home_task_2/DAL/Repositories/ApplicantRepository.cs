@@ -1,4 +1,5 @@
-﻿using Home_task_2.DataDB;
+﻿using DAL.EF;
+using Home_task_2.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Home_task_2.Repositories

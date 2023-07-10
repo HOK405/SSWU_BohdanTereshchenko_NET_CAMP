@@ -1,6 +1,4 @@
-﻿using Home_task_2.DataDB;
-using Home_task_2.Repositories;
-using Home_task_2.Services;
+﻿using DAL.EF;
 
 namespace Home_task_2
 {
@@ -14,9 +12,8 @@ namespace Home_task_2
 
                 menu.Run();
 
-
-                // Додавання адреси
-                /*var newAddress = new Address
+                /*// Додавання адреси
+                var newAddress = new Address
                 {
                     Country = "Ukraine",
                     Region = "Kyiv",
@@ -27,57 +24,56 @@ namespace Home_task_2
                     Floor = 2,
                     PostalCode = "12345"
                 };
-                addressRepository.Add(newAddress);*/
+                addressRepository.Add(newAddress);
 
                 // Отримання адреси за ID
-                /*var retrievedAddress = addressRepository.GetById(7);
-                Console.WriteLine(retrievedAddress);*/
+                var retrievedAddress = addressRepository.GetById(7);
+                Console.WriteLine(retrievedAddress);
 
                 // Оновлення адреси
-                /*retrievedAddress.City = "Poltava";
+                retrievedAddress.City = "Poltava";
                 retrievedAddress.Region = "Poltava";
-                addressRepository.Update(retrievedAddress);*/
+                addressRepository.Update(retrievedAddress);
 
                 // Видалення адреси
-                /*addressRepository.Delete(retrievedAddress);*/
+                addressRepository.Delete(retrievedAddress);
 
                 // Отримання всіх адрес
-                /*foreach (Address address in addressRepository.GetAll())
+                foreach (Address address in addressRepository.GetAll())
                 {
                     Console.WriteLine(address);
                     Console.WriteLine(new string('-', 10));
-                }*/
+                }
 
 
 
                 // Отримання заявника за ID
-                /*var retrievedApplicant = applicantRepository.GetById(1);
-                Console.WriteLine(retrievedApplicant);*/
+                var retrievedApplicant = applicantRepository.GetById(1);
+                Console.WriteLine(retrievedApplicant);
 
                 // Отримання всіх заявників
-                /*foreach (Applicant applicant in applicantRepository.GetAll())
+                foreach (Applicant applicant in applicantRepository.GetAll())
                 {
                     Console.WriteLine(applicant);
                     Console.WriteLine(new string('-', 15));
-                }*/
+                }
 
 
                 // Отримання всіх резюме
-                /*foreach (Cv cv in cvRepository.GetAll())
+                foreach (Cv cv in cvRepository.GetAll())
                 {
                     Console.WriteLine(cv);
                     Console.WriteLine(new string('-', 15));
-                }*/
+                }
 
 
                 // Отримання всіх CvSkill
-                /*foreach (Cvskill cvSkill in cvSkillRepository.GetAll())
+                foreach (Cvskill cvSkill in cvSkillRepository.GetAll())
                 {
                     Console.WriteLine($"CV ID:{cvSkill.IdCv}, Skill ID:{cvSkill.IdSkill}");
                     Console.WriteLine(cvSkill.Description);
                     Console.WriteLine(new string('-', 20));
                 }*/
-
 
             }
         }
